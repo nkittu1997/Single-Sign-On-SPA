@@ -1,0 +1,92 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  form {border: 3px solid #f1f1f1;}
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .container {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  }
+  
+  .centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+ }
+
+  </style>
+</head>
+  <body>
+    <div class="container">
+      <img src="assets/fafsa-logo-png.png" width="400" height="65"/>
+      <button style="width: fit-content; height: fit-content; margin-right: 30px" (click)="login()" *ngIf="!token">Login</button> 
+      <button (click)="logout()" style="width: fit-content; height: fit-content; align-items: flex-end" *ngIf="token">Logout</button>
+    </div>
+
+    <div class="centered">
+      <h1>Welcome to Sample Application 1</h1>
+    </div>
+
+    <div class="centered">
+      <p *ngIf="!token">Please click the login button to the top-right</p>
+    </div>
+
+    <div class="centered">
+      <p id = "username" *ngIf="token">Welcome to the APP : <b>{{idname}}</b></p>
+    </div>
+
+    <div class="centered">
+      <p id = "statevalue" style="text-overflow: false;">State Details: {{stateval}}</p>
+    </div>
+
+    <div class="centered">
+      <p id = "tokendetails" style="width:100px; white-space: nowrap;text-overflow: ellipsis;word-break: break-word" *ngIf="token">Token ID: {{idtoken1.ias}}</p>
+    </div>
+
+    <div class="footer">
+      <hr>
+      <div class="copyright">
+          <p>© 2022 Jazz Solutions INC. <br> All rights reserved</p>
+      </div>
+    </div>
+  </body>
+<router-outlet *ngIf="token"></router-outlet>

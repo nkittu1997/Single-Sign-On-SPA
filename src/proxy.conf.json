@@ -1,0 +1,8 @@
+{
+    "/echo":{
+        "target" : "https://ppssa.ed.gov/.well-known/jwks.json",
+        "secure" : true,
+        "changeOrigin" : true,
+        "logLevel" : "debug"
+    }
+}
