@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   title = 'rpapp1';
   idname = "";
   stat = "unchanged";
-  sessionCheckUrl = "https://ppssa.ed.gov/mga/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:checksession";
+  sessionCheckUrl = "";
   rawList: any;
   stateval = "";
   mySubscription : Subscription;
@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
   }
 
   async checkLoginState(){
-    this.http.get('https://ppssa.ed.gov/mga/sps/apiauthsvc?PolicyId=urn:ibm:security:authentication:asf:checksession', { withCredentials: true })
+    this.http.get('', { withCredentials: true })
       .subscribe(data => {
         this.rawList = data;
         this.stateval = this.rawList.state;
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
   }
 
   initLoginproc(){
-    this.http.get('https://ppssa.ed.gov/mga/sps/apiauthsvc?PolicyId=urn:ibm:security:authentication:asf:checksession', { withCredentials: true })
+    this.http.get('', { withCredentials: true })
     .subscribe(data => {
       this.rawList = data;
       this.stateval = this.rawList.state;
